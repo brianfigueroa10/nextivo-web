@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 15% 10%; /* Fondo oscuro con tinte cálido */
+    --foreground: 20 10% 98%;
+    --card: 20 15% 12%; /* Tarjetas con tinte cálido */
+    --card-foreground: 20 10% 98%;
+    --popover: 20 15% 10%;
+    --popover-foreground: 20 10% 98%;
+    --primary: 24 95% 53%; /* Naranja brillante */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 100% 50%; /* Ámbar/naranja claro */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 20 10% 15%;
+    --muted-foreground: 20 5% 65%;
+    --accent: 12 76% 48%; /* Naranja rojizo */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 10% 20%;
+    --input: 20 10% 20%;
+    --ring: 24 95% 53%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 20 15% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 15% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 15% 10%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 20 10% 96%;
+    --muted-foreground: 20 5% 40%;
+    --accent: 12 76% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 10% 90%;
+    --input: 20 10% 90%;
+    --ring: 24 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-heading {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-md hover:shadow-primary/30;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 hover:shadow-md hover:shadow-secondary/30;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:shadow-md hover:shadow-accent/30;
+  }
+
+  .btn-outline-primary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+  }
+
+  .btn-outline-secondary {
+    @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300;
+  }
+
+  .section-pattern {
+    @apply bg-hero-pattern bg-fixed;
+  }
+
+  .glow {
+    @apply relative;
+  }
+
+  .glow::before {
+    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg blur opacity-30 transition duration-1000 group-hover:opacity-70 animate-pulse-slow;
+  }
+}
